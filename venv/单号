@@ -1,0 +1,27 @@
+import re
+
+filename = 'danhao.txt'
+filename2 = 'new.txt'
+
+with open(filename, encoding="utf-8") as file_object:
+    contents = file_object.read()
+    p = [i.start() for i in re.finditer('EK', contents)]
+    print(p)
+    word = contents.split()
+    print(word)
+    for x in range(len(word)):
+        if x % 2 == 1:
+            print(word[x])
+    for y in word:
+        if word.index(y) % 2 == 1:
+            print(y)
+
+with open(filename2, 'w') as new_file_object:
+    for m in p:
+        dh = contents[m:m + 14]
+        print(dh)
+        new_file_object.write(dh + '\n')
+
+
+
+
